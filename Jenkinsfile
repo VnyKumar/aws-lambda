@@ -46,7 +46,7 @@ pipeline {
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
 				    sh 'echo "${FUNC_NAME}'
-				    sh 'aws function-exists --function-name "temp" '
+				    sh 'aws function-exists --function-name 'temp' '
 
 				    sh 'aws lambda list-functions | grep -i ${TEST_FUNC} ' 
 				  
