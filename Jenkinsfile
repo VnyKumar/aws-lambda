@@ -4,6 +4,10 @@ pipeline {
      triggers {
         pollSCM "* * * * *"
     }
+	environment{
+	FUNC_NAME = 'Demo-Function'
+	}
+	
     stages {
         stage('clone') {
             steps {
@@ -35,6 +39,7 @@ pipeline {
 			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
+				    echo '${FUNC_NAME}'
 			    
 			    }
 			    
