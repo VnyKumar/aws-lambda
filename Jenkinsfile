@@ -6,6 +6,7 @@ pipeline {
     environment {
     FUNC_NAME   = 'demo-function'
 	TEST_FUNC   =  'temp'
+	 HANDLER = 'com.techprimers.aws.LambdaJavaAPI'
 	  
     }
 	parameters {
@@ -34,7 +35,9 @@ pipeline {
 					steps {
 							echo " The environment is ${params.Env}"
 							withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
-							 sh "aws lambda create-function --function-name "{$env.FUNC_NAME}" --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar --handler "com.techprimers.aws.LambdaJavaAPI" --runtime java8 --role arn:aws:iam::125855726099:role/lambda-example"
+							// sh "aws lambda create-function --function-name "demo-function" --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar --handler "com.techprimers.aws.LambdaJavaAPI" --runtime java8 --role arn:aws:iam::125855726099:role/lambda-example"
+
+							sh "aws lambda create-function --function-name "{$env.FUNC_NAME}" --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar --handler "${env.HANDLER}" --runtime java8 --role arn:aws:iam::125855726099:role/lambda-example"
 							 }
 						}  					    
 		    }
