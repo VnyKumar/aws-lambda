@@ -43,7 +43,7 @@ pipeline {
 			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
-				    echo '${DB_ENGINE}'
+				    echo "${DB_ENGINE}"
 			    
 			    }
 			    
