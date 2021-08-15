@@ -6,6 +6,7 @@ pipeline {
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
+	FUNC_NAME   = 'demo-function'
     }
      triggers {
         pollSCM "* * * * *"
