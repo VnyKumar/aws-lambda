@@ -33,10 +33,9 @@ pipeline {
 			    }*/
 	/// Prasadu changes
 			    
-			        withAWS(credentials:'AWSLoginCred') {
-				  sh 'aws lambda list-functions'
-			        //sh 'aws lambda update-function-code  --function-name  demofunction3   --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar'
-                                    
+			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
+				   sh 'aws lambda list-functions'
+			    
 			    }
 			    
 		    }
