@@ -7,6 +7,7 @@ pipeline {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
 	FUNC_NAME   = 'demo-function'
+	TEST_FUNC   =  'temp'
     }
      triggers {
         pollSCM "* * * * *"
@@ -45,6 +46,8 @@ pipeline {
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
 				    echo "${FUNC_NAME}"
+				    sh 'aws lambda list-functions | grep -i ${TEST_FUNC} ' 
+				  
 			    
 			    }
 			    
