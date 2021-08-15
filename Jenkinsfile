@@ -1,12 +1,16 @@
 pipeline {
-    agent any
-     
+    agent {
+        label '!windows'
+    }
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
      triggers {
         pollSCM "* * * * *"
     }
-	environment{
-	FUNC_NAME = 'Demo-Function'
-	}
+	
 	
     stages {
         stage('clone') {
@@ -39,7 +43,7 @@ pipeline {
 			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
-				    echo '${FUNC_NAME}'
+				    echo '${DB_ENGINE}'
 			    
 			    }
 			    
