@@ -16,16 +16,10 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                //sh 'echo "Hello World"' 
-                //sh 'git clone https://github.com/VnyKumar/demoapp.git' 
-		//sh 'javac *java'
-		//sh 'java  HelloWorld'
+                
 		 sh 'mvn -B -DskipTests clean package'
 		 sh 'pwd'
-		 //sh 'cp target/*jar ../${BUILD_NUMBER}_LambdaAPI.jar'
-		 //sh 'java -jar target/*jar '
-                //git "https://github.com/VnyKumar/firstGit.git"
-                
+		                 
             }//steps
         }//stage
 	    
