@@ -46,7 +46,7 @@ pipeline {
 					steps {
 							echo " The environment is ${params.Env}"
 							withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
-							 sh 'aws lambda update-function-code  --function-name  "{$env.FUNC_NAME}"  --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar'
+							 sh 'aws lambda update-function-code  --function-name  $env.FUNC_NAME  --zip-file fileb://target/lambda-java-api-example-1.0-SNAPSHOT.jar'
 							 }
 						}  					    
 		    }	
