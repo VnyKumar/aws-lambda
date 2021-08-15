@@ -35,7 +35,7 @@ pipeline {
                                     
 			    }*/
 	/// Prasadu changes
-00			    
+			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
 				    sh 'echo "${FUNC_NAME}'
