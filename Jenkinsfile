@@ -4,10 +4,9 @@ pipeline {
     }
 
     environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-	FUNC_NAME   = 'demo-function'
+       	FUNC_NAME   = 'demo-function'
 	TEST_FUNC   =  'temp'
+	  
     }
      triggers {
         pollSCM "* * * * *"
@@ -42,7 +41,7 @@ pipeline {
                                     
 			    }*/
 	/// Prasadu changes
-			    
+00			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
 				    sh 'echo "${FUNC_NAME}'
