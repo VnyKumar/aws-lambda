@@ -38,6 +38,7 @@ pipeline {
 			    
 			    withAWS(region:'us-west-2',credentials:'AWSLoginCred'){
 				   sh 'aws lambda list-functions'
+				   sh "aws lambda create-function --function-name demo-function --zip-file fileb://target/*jar --handler com.techprimers.aws.LambdaJavaAPI --runtime java8 --role arn:aws:iam::125855726099:role/lambda-example"
 				   // sh 'echo "${FUNC_NAME}'
 				    //sh 'aws function-exists --function-name "temp" '
 				    
